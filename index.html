@@ -3,10 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposal Page</title>
+    <title>Valentine's Day Proposal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffb6c1 0%, #ff69b4 100%);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #ff1493;
+            margin-bottom: 40px;
+            font-size: 36px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .yes {
+            background-color: #ff69b4;
+            color: white;
+        }
+
+        .yes:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+        }
+
+        .no {
+            background-color: #ffffff;
+            color: #333;
+            border: 2px solid #ff69b4;
+            position: absolute;
+        }
+
+        .no:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-    <h1>Proposal Page</h1>
-    <p>This is a proposal page created for the project.</p>
+    <div class="container">
+        <h1>💕 Will you be my Valentine? 💕</h1>
+        <button class="yes" onclick="goToHearts()">Yes</button>
+    </div>
+
+    <button class="no" id="noButton" onclick="moveNoButton()">No</button>
+
+    <script>
+        function moveNoButton() {
+            const button = document.getElementById('noButton');
+            const randomX = Math.random() * (window.innerWidth - 100);
+            const randomY = Math.random() * (window.innerHeight - 50);
+            
+            button.style.position = 'fixed';
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+        }
+
+        function goToHearts() {
+            window.location.href = 'hearts.html';
+        }
+
+        // Move the button randomly on page load
+        moveNoButton();
+    </script>
 </body>
 </html>
